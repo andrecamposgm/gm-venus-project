@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans 
+    http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+
+    <bean id="dataSource" class="com.greenmile.web.dbcp.GmBasicDataSource" destroy-method="close">
+                <property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
+                <property name="url" value="jdbc:oracle:thin:@dbConnection@" />
+                <property name="username" value="@dbUser@" />
+                <property name="password" value="@dbPassword@" />
+                <property name="initialSize" value="5" />
+                <property name="maxIdle" value="10" />
+                <property name="maxActive" value="20" />
+                <property name="minIdle" value="5" />
+                <property name="maxWait" value="30000" />
+        </bean>
+
+</beans>

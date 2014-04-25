@@ -21,36 +21,57 @@
 	    </activation>
 	    
 	    <properties> 
-	        <!-- Build variables -->
+	        <!-- Variaves de versao -->
 	        <version>SNAPSHOT</version>
 	        <environment>DEV</environment>
 	        <buildNumber>0</buildNumber>
 	        
 	        <!-- Conexao padrao para ambiente de desenvolvimento -->
-	        <dbConnection>10.1.1.27:1521:xe</dbConnection>
+	        <dbConnection>@10.1.1.27:1521:xe</dbConnection>
 	        <dbUser>${user.name}</dbUser> 
 	        <dbPassword>sagarana</dbPassword>
 	        
-	        <!-- Versions under development -->
-       		<!-- <java.version>1.7</java.version> -->
+	        <!-- Logger configuration -->
+	        <logger.appenders>stdout</logger.appenders>
+	        
 	    </properties>
 	  </profile>
 	  
   	  <profile>
 	    <id>qa</id>
 	    <properties>
+	        <!-- Variaves de versao -->
 	        <version>RELEASE</version>
 	        <environment>QA</environment>
 	        <buildNumber>0</buildNumber>
+	        
+	        <!-- Informacoes de conexao externas -->
+	        <dbConnection>@${dbConnection}</dbConnection>
+	        <dbUser>${dbUser}</dbUser> 
+	        <dbPassword>${dbPassword}</dbPassword>
+	        
+     	    <!-- Logger configuration -->
+	        <logger.appenders>logfile, logPerUser, logPerEquipment</logger.appenders>
+	        
 	    </properties>
 	  </profile>
 	  
 	  <profile>
 	    <id>release</id>
 	    <properties>
+	        <!-- Variaves de versao -->
 	        <version>RELEASE</version>
 	        <environment>RELEASE</environment>
 	        <buildNumber>${bambooBuildNumber}</buildNumber>
+	        
+	        <!-- Informacoes de conexao com o banco padroes -->
+	        <dbConnection>@#DB_HOST#:#DB_PORT#:#DB_SID#</dbConnection>
+	        <dbUser>#DB_USER#</dbUser> 
+	        <dbPassword>#DB_PASS#</dbPassword>
+	        
+	        <!-- Logger configuration -->
+	        <logger.appenders>logfile, logPerUser, logPerEquipment</logger.appenders>
+	        
 	    </properties>
 	  </profile>
 	</profiles>
@@ -82,6 +103,7 @@
 				</execution>
 			</executions>
 		</plugin>
+		
 		<plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.1</version>

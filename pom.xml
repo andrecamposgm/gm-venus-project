@@ -35,21 +35,13 @@
        		</plugin>
 		</plugins>
 	</build>
-  
- 	<repositories>
-		<repository>
-            <id>greenmile.nexus</id>
-            <name>Sagarana Nexus Snapshots Repository</name>
-            <url>http://nexus.greenmile.com/nexus/content/repositories/releases/</url>
-        </repository>
-	</repositories>	  
-	
  	
  	<!-- 																			 -->
  	<!-- 				Nesse ponto acontece a magica e a bela da 					 -->
  	<!-- 				utilizacao de profiles										 -->
  	<!-- 																			 -->
  	<!-- http://maven.apache.org/guides/introduction/introduction-to-profiles.html   -->
+ 	<!-- http://docs.codehaus.org/display/MAVENUSER/MavenPropertiesGuide			 -->
  	<profiles> 
 		<!-- CONFIGURACAO DE DESENVOLVIMENTO (PADRAO) -->
 	  <profile>

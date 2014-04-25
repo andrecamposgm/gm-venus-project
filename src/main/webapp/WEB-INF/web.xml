@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE web-app
+    PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+    "http://java.sun.com/dtd/web-app_2_3.dtd">
+<web-app>
+    <display-name>GM-VENUS-PROJECT</display-name>
+    <description>GM-VENUS-PROJECT</description>
+
+    <mime-mapping>
+        <extension>cab</extension>
+        <mime-type>application/octet-stream</mime-type>
+    </mime-mapping>
+
+    <mime-mapping>
+        <extension>CAB</extension>
+        <mime-type>application/octet-stream</mime-type>
+    </mime-mapping>
+    
+    <mime-mapping>
+        <extension>jar</extension>
+        <mime-type>application/java-archive</mime-type>
+    </mime-mapping>
+    
+    <mime-mapping>
+        <extension>jad</extension>
+        <mime-type>text/vnd.sun.j2me.app-descriptor</mime-type>
+    </mime-mapping>
+        
+    <mime-mapping>
+        <extension>JAR</extension>
+        <mime-type>application/java-archive</mime-type>
+    </mime-mapping>
+    
+     <mime-mapping>
+        <extension>JAD</extension>
+        <mime-type>text/vnd.sun.j2me.app-descriptor</mime-type>
+    </mime-mapping>
+
+    <mime-mapping>
+        <extension>apk</extension>
+        <mime-type>application/vnd.android.package-archive</mime-type>
+    </mime-mapping>
+    
+</web-app>

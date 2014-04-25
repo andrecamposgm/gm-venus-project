@@ -99,7 +99,7 @@
 	        <logger.appenders>logfile, logPerUser, logPerEquipment</logger.appenders>
 	        
 	        <!-- final name -->
-	        <fileName>${artifactId}-${branchName}-${bambooBuildNumber}</fileName>
+	        <fileName>${artifactId}-${branchName}-${bambooBuildNumber}-QA</fileName>
 	    </properties>
 	  </profile>
 	  
@@ -126,7 +126,7 @@
 	        <logger.appenders>logfile, logPerUser, logPerEquipment</logger.appenders>
 	        
 	        <!-- final name -->
-	        <fileName>${artifactId}-${branchName}-${bambooBuildNumber}</fileName>
+	        <fileName>${artifactId}-${branchName}-${bambooBuildNumber}-RC</fileName>
 	    </properties>
 	  </profile>
 	</profiles>

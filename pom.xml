@@ -14,6 +14,7 @@
 	</properties> 
 	
 	<build>
+	      <finalName>${fileName}</finalName>
 	      <resources>
 	           <resource>
 		        <directory>src/main/resources</directory>
@@ -69,6 +70,9 @@
 	        <!-- Logger configuration -->
 	        <logger.appenders>stdout</logger.appenders>
 	        
+	        <!-- final name -->
+	        <fileName>${artifactId}-DEV-DONOTDISTRIBUT</fileName>
+	        
 	    </properties>
 	  </profile>
 	  
@@ -77,9 +81,9 @@
 	    <id>qa</id>
 	    <properties>
 	        <!-- Variaves de versao -->
-	        <version>RELEASE</version>
+	        <version>SNAPSHOT</version>
 	        <environment>QA</environment>
-	        <buildNumber>0</buildNumber>
+	        <buildNumber>${bambooBuildNumber}</buildNumber>
 	        
 	        <!-- Informacoes de conexao externas -->
 	        <dbConnection>${dbConnection}</dbConnection>
@@ -94,6 +98,8 @@
      	    <!-- Logger configuration -->
 	        <logger.appenders>logfile, logPerUser, logPerEquipment</logger.appenders>
 	        
+	        <!-- final name -->
+	        <fileName>${artifactId}-${branchName}-${bambooBuildNumber}</fileName>
 	    </properties>
 	  </profile>
 	  
@@ -119,6 +125,8 @@
 	        <!-- Logger configuration -->
 	        <logger.appenders>logfile, logPerUser, logPerEquipment</logger.appenders>
 	        
+	        <!-- final name -->
+	        <fileName>${artifactId}-${branchName}-${bambooBuildNumber}</fileName>
 	    </properties>
 	  </profile>
 	</profiles>

@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.greenmile</groupId>
   <artifactId>gm-venus-project</artifactId>
-  <version>4.6.0-${version}</version>
+  <version>4.5.0-${version}</version>
   <packaging>war</packaging>
   <name>gm-venus-project</name>
   
@@ -61,6 +61,11 @@
 	        <dbUser>${user.name}</dbUser> 
 	        <dbPassword>sagarana</dbPassword>
 	        
+	        <!-- GM Auth database connection -->
+	        <gmAuthDBConnection>@10.1.1.27:1521:xe</gmAuthDBConnection>
+	        <gmAuthDBUser>gmauth</gmAuthDBUser> 
+	        <gmAuthDBPassword>sagarana</gmAuthDBPassword>
+	        
 	        <!-- Logger configuration -->
 	        <logger.appenders>stdout</logger.appenders>
 	        
@@ -68,7 +73,7 @@
 	  </profile>
 	  
   	  <profile>
-  	      <!-- CONFIGURACAO DE QUALIDADE -->
+  	    <!-- CONFIGURACAO DE QUALIDADE -->
 	    <id>qa</id>
 	    <properties>
 	        <!-- Variaves de versao -->
@@ -77,9 +82,14 @@
 	        <buildNumber>0</buildNumber>
 	        
 	        <!-- Informacoes de conexao externas -->
-	        <dbConnection>@${dbConnection}</dbConnection>
+	        <dbConnection>${dbConnection}</dbConnection>
 	        <dbUser>${dbUser}</dbUser> 
 	        <dbPassword>${dbPassword}</dbPassword>
+	        	        
+	        <!-- GM Auth database connection -->
+	        <gmAuthDBConnection>${gmAuthDBConnection}</gmAuthDBConnection>
+	        <gmAuthDBUser>${gmAuthUser}</gmAuthDBUser> 
+	        <gmAuthDBPassword>${gmAuthDBPassword}</gmAuthDBPassword>
 	        
      	    <!-- Logger configuration -->
 	        <logger.appenders>logfile, logPerUser, logPerEquipment</logger.appenders>
@@ -100,6 +110,11 @@
 	        <dbConnection>@#DB_HOST#:#DB_PORT#:#DB_SID#</dbConnection>
 	        <dbUser>#DB_USER#</dbUser> 
 	        <dbPassword>#DB_PASS#</dbPassword>
+	        
+	        <!-- GM Auth database connection -->
+	        <gmAuthDBConnection>@#DB_HOST#:#DB_PORT#:#DB_SID#</gmAuthDBConnection>
+	        <gmAuthDBUser>#DB_USER#</gmAuthDBUser> 
+	        <gmAuthDBPassword>#DB_PASS#</gmAuthDBPassword>
 	        
 	        <!-- Logger configuration -->
 	        <logger.appenders>logfile, logPerUser, logPerEquipment</logger.appenders>

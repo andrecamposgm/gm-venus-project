@@ -12,8 +12,46 @@
 	   	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java.version>1.6</java.version>
 	</properties> 
-
-	<profiles>
+	
+	<build>
+	      <resources>
+	           <resource>
+		        <directory>src/main/resources</directory>
+		        <!-- Nessa configuracao aqui eh que a magica acontece de substituir as variaveis -->
+		        <!-- @variavel@ nos arquivos de propriedades -->
+		        <filtering>true</filtering>
+		      </resource>
+	      </resources>
+	      
+		  <plugins>
+			<plugin>
+	           <artifactId>maven-compiler-plugin</artifactId>
+	           <version>3.1</version>
+	           <configuration>
+	               <source>${java.version}</source>
+	               <target>${java.version}</target>
+	               <encoding>${project.build.sourceEncoding}</encoding>
+	           </configuration>
+       		</plugin>
+		</plugins>
+	</build>
+  
+ 	<repositories>
+		<repository>
+            <id>greenmile.nexus</id>
+            <name>Sagarana Nexus Snapshots Repository</name>
+            <url>http://nexus.greenmile.com/nexus/content/repositories/releases/</url>
+        </repository>
+	</repositories>	  
+	
+ 	
+ 	<!-- 																			 -->
+ 	<!-- 				Nesse ponto acontece a magica e a bela da 					 -->
+ 	<!-- 				utilizacao de profiles										 -->
+ 	<!-- 																			 -->
+ 	<!-- http://maven.apache.org/guides/introduction/introduction-to-profiles.html   -->
+ 	<profiles> 
+		<!-- CONFIGURACAO DE DESENVOLVIMENTO (PADRAO) -->
 	  <profile>
 	    <id>development</id>
 	    <activation>
@@ -38,6 +76,7 @@
 	  </profile>
 	  
   	  <profile>
+  	      <!-- CONFIGURACAO DE QUALIDADE -->
 	    <id>qa</id>
 	    <properties>
 	        <!-- Variaves de versao -->
@@ -57,6 +96,7 @@
 	  </profile>
 	  
 	  <profile>
+	      <!-- CONFIGURACAO DE RELEASE -->
 	    <id>release</id>
 	    <properties>
 	        <!-- Variaves de versao -->
@@ -75,54 +115,5 @@
 	    </properties>
 	  </profile>
 	</profiles>
-
-  <build>
-      <resources>
-           <resource>
-	        <directory>src/main/resources</directory>
-	        <filtering>true</filtering>
-	      </resource>
-      </resources>
-	<plugins>
-		<plugin>
-			<groupId>org.codehaus.mojo</groupId>
-			<artifactId>build-helper-maven-plugin</artifactId>
-			<version>1.3</version>
-			<executions>
-				<execution>
-					<id>add-source</id>
-					<phase>generate-sources</phase>
-					<goals>
-						<goal>add-source</goal>
-					</goals>
-					<configuration>
-						<sources>
-							<source>src/migrations/java</source>
-						</sources>
-					</configuration>
-				</execution>
-			</executions>
-		</plugin>
-		
-		<plugin>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.1</version>
-                <configuration>
-                    <source>${java.version}</source>
-                    <target>${java.version}</target>
-                    <encoding>${project.build.sourceEncoding}</encoding>
-                </configuration>
-            </plugin>
-            
-		</plugins>
-	</build>
-  
- 	<repositories>
-		<repository>
-            <id>greenmile.nexus</id>
-            <name>Sagarana Nexus Snapshots Repository</name>
-            <url>http://nexus.greenmile.com/nexus/content/repositories/releases/</url>
-        </repository>
-	</repositories>	  
   
 </project>

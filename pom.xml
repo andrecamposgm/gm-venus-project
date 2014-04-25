@@ -50,6 +50,7 @@
 					<target>1.6</target>
 				</configuration>
 			</plugin>
+			
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>properties-maven-plugin</artifactId>
@@ -61,7 +62,9 @@
 							<goal>write-project-properties</goal>
 						</goals>
 						<configuration>
-							<outputFile>${project.build.outputDirectory}/com/greenmile/gmven/version/gm-venus-project.properties</outputFile>
+							<outputFile>
+							    ${project.build.outputDirectory}/com/greenmile/gmven/version/gm-venus-project.properties
+							</outputFile>
 						</configuration>
 					</execution>
 				</executions>
@@ -91,7 +94,19 @@
  	<repositories>
 		<repository>
 			<id>sagarana.internal</id>
-			<url>http://10.1.1.7:8081/archiva/repository/internal/</url>
+			<url>http://archiva.sagarana.com.br:8081/archiva/repository/internal/</url>
+		</repository>
+		<repository>
+			<id>sagarana.nexus</id>
+			<url>http://archiva.sagarana.com.br:8082/nexus/content/repositories/releases/</url> 
+		</repository>
+		<repository>
+			<id>sagarana.nexus.snapshots</id>
+			<url>http://archiva.sagarana.com.br:8082/nexus/content/repositories/snapshots/</url> 
+		</repository>
+		<repository>
+		    <id>sagarana.nexus.thirdparty</id>
+		    <url>http://archiva.sagarana.com.br:8082/nexus/content/repositories/thirdparty/</url>
 		</repository>
 	</repositories>	  
   
